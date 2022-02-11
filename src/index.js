@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 // Step 1. Import react-router functions
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function Home() {
   return (
@@ -21,7 +21,7 @@ function About() {
 
 function Login() {
   return (
-    <div>
+    <Switch>
       <h1>Login</h1>
       <form>
         <div>
@@ -32,24 +32,24 @@ function Login() {
         </div>
         <input type="submit" value="Submit" />
       </form>
-    </div>
+    </Switch>
   )
 }
 
-// Step 2. Use <Route> componenets to define client-side routes in our app
+// Step 2. Use <Route> components to define client-side routes in our app
 function App() {
   return (
-    <div>
-      <Route path="/">
-        <Home />
-      </Route>
+    <Switch>
       <Route path="/about">
         <About />
       </Route>
       <Route path="/login">
         <Login />
       </Route>
-    </div>
+      <Route path="/">
+        <Home />
+      </Route>
+    </Switch>
   );
 }
 // Step 3. Use <Router> component to wrap the entire app
